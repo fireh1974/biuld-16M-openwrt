@@ -15,3 +15,6 @@
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+
+sed -i 's/$(tplink-8mlzma)/$(tplink-16mlzma)/g' ./target/linux/ar71xx/image/generic-tp-link.mk
+sed -i 's/$(tplink-4m)/$tplink-16m)/g' ./target/linux/ar71xx/image/tiny-tp-link.mk
