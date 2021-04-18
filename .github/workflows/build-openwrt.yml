@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 编译路由器固件
+name: 编译tl-wdr4310-v1 openwrt固件
 
 on:
   repository_dispatch:
