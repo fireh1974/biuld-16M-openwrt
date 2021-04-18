@@ -15,8 +15,8 @@
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-sed -i '$a src-git kenzok https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+#sed -i '$a src-git kenzok https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
 sed -i 's/$(tplink-8m)/$(tplink-16m)/g' ./target/linux/ath79/image/generic-tp-link.mk
 # sed -i 's/$(tplink-4m)/$tplink-16m)/g' ./target/linux/ath79/image/tiny-tp-link.mk
