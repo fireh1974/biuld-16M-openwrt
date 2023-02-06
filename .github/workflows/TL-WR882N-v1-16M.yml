@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/fireh1974/wr882n-lede
+  REPO_URL: https://github.com/coolsnowwolf/lede/commit/3cde517a11bc2a0b1b4db9ef2e1ab2e91e9bd046
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: TL-WR882N-v1-16M.config
