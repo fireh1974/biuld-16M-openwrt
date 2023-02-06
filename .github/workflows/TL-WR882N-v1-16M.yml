@@ -83,7 +83,7 @@ jobs:
     - name: Download Package
       id: package
       run: |
-        cd $OPENWRTROOT
+        cd openwrt
         make defconfig
         make download -j50
         find dl -size -1024c -exec ls -l {} \;
