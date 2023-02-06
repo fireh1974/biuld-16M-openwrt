@@ -23,7 +23,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: TL-WR882N-v1-16M.config
   DIY_P1_SH: diy-part1.sh
-  DIY_SH: wr882n.sh
+  DIY_P2_SH: wr882n.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
