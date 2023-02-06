@@ -20,8 +20,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede/tree/3cde517a11bc2a0b1b4db9ef2e1ab2e91e9bd046
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: 3cde517a11bc2a0b1b4db9ef2e1ab2e91e9bd046
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: TL-WR882N-v1-16M.config
   DIY_P1_SH: diy-part1.sh
@@ -57,8 +57,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        # git clone $REPO_URL -b $REPO_BRANCH openwrt
-        git clone $REPO_URL -b openwrt
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
