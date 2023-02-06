@@ -21,6 +21,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: TL-WR882N-v1-16M.config
+  DIY_P1_SH: diy-part1.sh
   DIY_SH: wr882n.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -70,17 +71,13 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a 
       
-    - name: Load Custom Configuration
+    - name: Load custom configuration
       run: |
-        [ -e files ] && mv files $OPENWRTROOT/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRTROOT/.config
-        chmod +x scripts/*.sh
-        cd $OPENWRTROOT
-        ../$DIY_SH
-        ../scripts/preset-clash-core.sh amd64
-        ../scripts/preset-terminal-tools.sh
-        sed -i '$a\CONFIG_DEVEL=y\nCONFIG_LOCALMIRROR=\"https://openwrt.cc/dl/coolsnowwolf/lede\"' .config
-        make defconfig
+        [ -e files ] && mv files openwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x $DIY_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_SH
         
     - name: Download Package
       id: package
@@ -105,8 +102,6 @@ jobs:
       if: (!cancelled())
       run: df -hT
         
-
-          
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
