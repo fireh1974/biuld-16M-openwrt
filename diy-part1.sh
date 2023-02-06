@@ -12,9 +12,6 @@ echo '=========Remove benchmark display in index OK!========='
 # Modify default IP 
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-##### Set argon as default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile
-
 # 移除不用软件包
 # rm -rf feeds/luci/applications/luci-app-netdata
 # rm -rf feeds/luci/applications/luci-app-pptp-server
