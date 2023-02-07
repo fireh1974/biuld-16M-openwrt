@@ -3,8 +3,8 @@
 sed -i 's/tplink-4mlzma/tplink-16mlzma/g' target/linux/ath79/image/tiny-tp-link.mk
 sed -i 's/<0x020000 0x3d0000>/<0x020000 0xfd0000>/g' target/linux/ath79/dts/tp9343_tplink_tl-wx.dtsi
 sed -i 's/<0x3f0000 0x010000>/<0xff0000 0x010000>/g' target/linux/ath79/dts/tp9343_tplink_tl-wx.dtsi
-sed -i 's/ucidef_set_interface_wan "eth1";/ucidef_set_interfaces_lan_wan "eth1.1" "eth0";/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
-sed -i 's/"0@eth0" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1"/"0@eth1" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1"/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
+#sed -i 's/ucidef_set_interface_wan "eth1";/ucidef_set_interfaces_lan_wan "eth1.1" "eth0";/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
+sed -i 's/"0@eth0" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1"/"0@eth0" "1:lan:1" "2:lan:2" "3:lan:3" "4:lan:4"/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
 #sed -i 's/ucidef_set_led_netdev "wan" "WAN" "blue:wan" "eth1"/ucidef_set_led_netdev "wan" "WAN" "green:wan" "eth0"/g' target/linux/ath79/tiny/base-files/etc/board.d/01_leds
 #sed -i 's/" "blue:/" "green:/g' target/linux/ath79/tiny/base-files/etc/board.d/01_leds
 
