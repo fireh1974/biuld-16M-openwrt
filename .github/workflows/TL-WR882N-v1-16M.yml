@@ -24,7 +24,8 @@ env:
   CONFIG_FILE: TL-WR882N-v1-16M.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: wr882n.sh
-  KMODS_IN_FIRMWARE: true
+    UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
@@ -36,7 +37,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v3
 
     - name: Initialization environment
       env:
