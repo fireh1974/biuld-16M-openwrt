@@ -36,7 +36,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
         
     - name: Initialization environment
       env:
@@ -51,15 +51,13 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         
-    - name: Clone Source Code
+    - name: Clone source code
+      working-directory: /workdir
       run: |
-        git clone $REPO_URL openwrt
-        cd openwrt
-        git pull
-        git branch -a
-        git tag
-        git checkout 3cde517a11bc2a0b1b4db9ef2e1ab2e91e9bd046
-        cd ..
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
