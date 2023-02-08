@@ -4,19 +4,10 @@ sed -i 's/tplink-4mlzma/tplink-16mlzma/g' target/linux/ath79/image/tiny-tp-link.
 sed -i 's/<0x020000 0x3d0000>/<0x020000 0xfd0000>/g' target/linux/ath79/dts/tp9343_tplink_tl-wx.dtsi
 sed -i 's/<0x3f0000 0x010000>/<0xff0000 0x010000>/g' target/linux/ath79/dts/tp9343_tplink_tl-wx.dtsi
 sed -i 's/ucidef_set_interface_wan "eth1";/ucidef_set_interfaces_lan_wan "eth0" "eth1";/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
-### blue:wan
-sed -i 's/gpios = <&gpio 14 GPIO_ACTIVE_LOW>;/gpios = <&gpio 2 GPIO_ACTIVE_LOW>;/g' target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
-### blue:lan1
-sed -i 's/gpios = <&gpio 7 GPIO_ACTIVE_LOW>;/gpios = <&gpio 4 GPIO_ACTIVE_LOW>;/g' target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
-### blue:lan2
-sed -i 's/gpios = <&gpio 6 GPIO_ACTIVE_LOW>;/gpios = <&gpio 5 GPIO_ACTIVE_LOW>;/g' target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
-### blue:lan3
-sed -i 's/gpios = <&gpio 5 GPIO_ACTIVE_LOW>;/gpios = <&gpio 6 GPIO_ACTIVE_LOW>;/g' target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
-### blue:lan4
-sed -i 's/gpios = <&gpio 4 GPIO_ACTIVE_LOW>;/gpios = <&gpio 7 GPIO_ACTIVE_LOW>;/g' target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
-#sed -i 's/"0@eth0" "1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1"/"0@eth0" "1:lan:1" "2:lan:2" "3:lan:3" "4:lan:4"/g' target/linux/ath79/tiny/base-files/etc/board.d/02_network
-#sed -i 's/ucidef_set_led_netdev "wan" "WAN" "blue:wan" "eth1"/ucidef_set_led_netdev "wan" "WAN" "green:wan" "eth0"/g' target/linux/ath79/tiny/base-files/etc/board.d/01_leds
-#sed -i 's/" "blue:/" "green:/g' target/linux/ath79/tiny/base-files/etc/board.d/01_leds
+rm -rf target/linux/ath79/dts/tp9343_tplink_tl-wr940n-v3.dtsi
+svn export https://github.com/fireh1974/biuld-16M-openwrt/trunk/files/tp9343_tplink_tl-wr940n-v3.dtsi target/linux/ath79/dts
+#svn co https://github.com/openwrt/packages/trunk/lang/node target/linux/ath79/dts
+
 
 echo '修改主机名'
 sed -i "s/hostname='OpenWrt'/hostname='TL-wr882n'/g" package/base-files/files/bin/config_generate
