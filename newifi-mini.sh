@@ -29,5 +29,5 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci
 
 # alist
 #git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
