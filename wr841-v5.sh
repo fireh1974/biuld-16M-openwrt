@@ -1,10 +1,12 @@
 
-##### 16MĞŞ¸Ä±àÒëÎÄ¼ş ######
+##### 16Mä¿®æ”¹ç¼–è¯‘æ–‡ä»¶ ######
 sed -i 's/tplink-4m/tplink-16m/g' target/linux/ath79/image/tiny-tp-link.mk
 sed -i 's/<0x20000 0x3d0000>/<0x020000 0xfd0000>/g' target/linux/ath79/dts/ar7240_tplink.dtsi
 sed -i 's/<0x3f0000 0x10000>/<0xff0000 0x010000>/g' target/linux/ath79/dts/ar7240_tplink.dtsi
-# common-tp-link.mk ÎÄ¼şÌí¼Ó16mÉèÖÃ
-echo 'ĞŞ¸ÄÖ÷»úÃû'
+rm -rf target/linux/ath79/image/common-tp-link.mk
+svn export https://github.com/fireh1974/biuld-16M-openwrt/trunk/files/common-tp-link.mk target/linux/ath79/image
+# common-tp-link.mk æ–‡ä»¶æ·»åŠ 16mè®¾ç½®
+echo 'ä¿®æ”¹ä¸»æœºå'
 sed -i "s/hostname='OpenWrt'/hostname=WR841n v5'/g" package/base-files/files/bin/config_generate
 echo '=========Alert hostname OK!========='
 
@@ -19,7 +21,7 @@ sed -i "s/OpenWrt /fireh build from Lede $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt 
 # Modify default IP 
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# ÒÆ³ı²»ÓÃÈí¼ş°ü
+# ç§»é™¤ä¸ç”¨è½¯ä»¶åŒ…
 # rm -rf feeds/luci/applications/luci-app-netdata
 # rm -rf feeds/luci/applications/luci-app-pptp-server
 # rm -rf feeds/packages/net/smartdns
